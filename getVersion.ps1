@@ -1,18 +1,8 @@
-﻿function getPSversion
+﻿#Get the benchmark files for the appropriate windows product version
+cls
+$getPV = (Get-CimInstance Win32_OperatingSystem).Caption
+switch -Regex ($getPV.ToLower())
 {
-    psVersion = Get-Host | Select-Object Version
-    return psVersion
-}
-
-
-function getWinversion
-{
-    try
-    {
-        $osVersion = Get-CimInstance Win32_OperatingSystem | Select-Object Caption
-    }
-    catch [System.Exception]
-    {
-       
-    }
+    "w(indows 8)" {"Yes"}
+    default {"No"}
 }
