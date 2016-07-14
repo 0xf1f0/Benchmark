@@ -7,7 +7,7 @@ $getOSversion = (Get-CimInstance Win32_OperatingSystem).Caption
 [xml]$oval = $null
 [xml]$xccdf = $null
 
-switch -Regex ($getPV.ToLower())
+switch -Regex ($getOSversion.ToLower())
 {
     "w(indows xp)"
     {
